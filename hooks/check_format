@@ -1,0 +1,43 @@
+#!/bin/bash
+
+export PATH=`git rev-parse --git-dir`/../tools/:$PATH
+
+
+# Possible predefined styles:
+# LLVM
+# Google
+# Chromium
+# Mozilla
+# WebKit
+
+# Change the code with:
+./run-clang-format.py --clang-format-executable clang-format -r src --style file 
+
+
+rc=$?
+if [[ $rc == 0 ]]
+then
+ echo "Nothing needs to be reformatted!"
+ exit 0
+fi
+
+echo -e "Would you like to reformat and continue to commit (y/n): \c"
+
+#Make sure under any mode, we can read user input.
+exec < /dev/tty
+read cont
+
+if [ "$cont" == "y" ]
+then
+  for file in $(git diff-index --cached --name-only HEAD); do
+  if [[ $file == *.cpp || $file == *.h ]]; then
+      clang-format -i "$file" -style=file
+      git add "$file"
+      echo -e "$file formatted!"
+      fi
+  done
+ exit 0
+fi
+
+exit 1
+
