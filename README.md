@@ -51,13 +51,14 @@ Here is an example:
 
 To use the script manually on a file or dir just run :
 
-`./run-clang-format.py --clang-format-executable clang-format --style file -r path/to/file`
+`./run-clang-format.py -i --clang-format-executable clang-format --style file -r path/to/file`
 
 or 
 
-`./run-clang-format.py --clang-format-executable clang-format --style file -r path/to/dir`
+`./run-clang-format.py -i --clang-format-executable clang-format --style file -r path/to/dir`
 
 ## Used tool versions
 
 - clang-format version 10.0.0-4ubuntu1
 - git version 2.25.1
+- python version 2.7.18
