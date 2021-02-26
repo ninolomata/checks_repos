@@ -35,11 +35,11 @@ Copy clang format file to your local repository:
 
 Add the pre-commit hook `check_format` to your local target repository to check the formatting for each commit:
 
-`cp hooks/check_format path/to/target/repo/.git/hooks/pre_commit`
+`cp hooks/check_format path/to/target/repo/.git/hooks/pre-commit`
 
 Make the file executable in your local repository hooks:
 
-`chmod +x path/to/target/repo/.git/hooks/pre_commit`
+`chmod +x path/to/target/repo/.git/hooks/pre-commit`
 
 ## How to use
 
