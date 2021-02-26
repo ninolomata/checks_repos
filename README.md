@@ -24,6 +24,8 @@ Add the formatting convention file to git configuration:
 
 Copy clang format run script to your local repository:
 
+`chmod +x run-clang-format.py`
+
 `cp run-clang-format.py path/to/target/repo/`
 
 Copy clang format file to your local repository:
